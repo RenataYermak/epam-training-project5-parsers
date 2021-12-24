@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<schema xmlns ="http://www.w3.org/2001/XMLSchema"
+        targetNamespace="http://www.example.com/cards"
+        xmlns:tns="http://www.example.com/cards"
+        elementFormDefault="qualified">
+    <element name="cards">
+        <complexType>
+            <sequence>
+                <element name="card"  type="tns:Card" minOccurs="2" maxOccurs="unbounded"/>
+            </sequence>
+        </complexType>
+    </element>
+    <complexType name="Card">
+        <sequence>
+            <element name="theme" type="tns:Theme"/>
+            <element name="type" type="tns:Type"/>
+            <element name="country" type="string"/>
+            <element name="year" type="date"/>
+            <element name="author" type="string"/>
+            <element name="valuable" type="tns:Valuable"/>
+        </sequence>
+        <attribute name="id" type="tns:Id" use="required"/>
+    </complexType>
+    <simpleType name="Theme">
+        <restriction base="string">
+            <enumeration value="Cityscape"/>
+            <enumeration value="Nature"/>
+            <enumeration value="People"/>
+             <enumeration value="Religion"/>
+            <enumeration value="Sport"/>
+            <enumeration value="Architecture"/>
+        </restriction>
+    </simpleType>
+    <simpleType name="Type">
+        <restriction base="string">
+            <enumeration value="Congratulatory"/>
+            <enumeration value="Advertising"/>
+            <enumeration value="Usual"/>
+        </restriction>
+    </simpleType>
+    <simpleType name="Valuable">
+        <restriction base="string">
+            <enumeration value="Historical"/>
+            <enumeration value="Collectible"/>
+            <enumeration value="Thematic"/>
+        </restriction>
+    </simpleType>
+    <simpleType name="Id">
+        <restriction base="long">
+        </restriction>
+    </simpleType>
+</schema>
