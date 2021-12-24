@@ -1,9 +1,9 @@
 package com.epam.parsers.model;
 
 public enum Valuable {
-    HISTORICAL ("Historical"),
-    COLLECTIBLE ("Collectible"),
-    THEMATIC ("Thematic");
+    HISTORICAL("Historical"),
+    COLLECTIBLE("Collectible"),
+    THEMATIC("Thematic");
 
     private String name;
 

@@ -1,12 +1,12 @@
 package com.epam.parsers.model;
 
 public enum Theme {
-    CITYSCAPE ("Cityscape"),
-    NATURE ("Nature"),
-    PEOPLE ("People"),
-    RELIGION ("Religion"),
-    SPORT ("Sport"),
-    ARCHITECTURE ("Architecture");
+    CITYSCAPE("Cityscape"),
+    NATURE("Nature"),
+    PEOPLE("People"),
+    RELIGION("Religion"),
+    SPORT("Sport"),
+    ARCHITECTURE("Architecture");
 
     private String name;
 
