@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
 <OldCards>
-	<Card>
+    <Card>
         <Id>1</Id>
         <Theme>Cityscape</Theme>
         <Type>Advertising</Type>
@@ -145,4 +145,5 @@
         <Valuable>Thematic</Valuable>
     </Card>
 </OldCards>
+
 

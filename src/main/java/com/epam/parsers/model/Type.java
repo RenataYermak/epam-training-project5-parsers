@@ -1,9 +1,9 @@
 package com.epam.parsers.model;
 
 public enum Type {
-    CONGRATULATORY ("Congratulatory"),
-    ADVERTISING ("Advertising"),
-    USUAL ("Usual");
+    CONGRATULATORY("Congratulatory"),
+    ADVERTISING("Advertising"),
+    USUAL("Usual");
 
     private String name;
 

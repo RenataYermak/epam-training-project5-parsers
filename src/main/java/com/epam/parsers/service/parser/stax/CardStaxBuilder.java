@@ -97,3 +97,4 @@ public class CardStaxBuilder extends AbstractCardBuilder {
         return text;
     }
 }
+

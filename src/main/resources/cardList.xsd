@@ -1,12 +1,12 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<schema xmlns ="http://www.w3.org/2001/XMLSchema"
+<schema xmlns="http://www.w3.org/2001/XMLSchema"
         targetNamespace="http://www.example.com/cards"
         xmlns:tns="http://www.example.com/cards"
         elementFormDefault="qualified">
     <element name="cards">
         <complexType>
             <sequence>
-                <element name="card"  type="tns:Card" minOccurs="2" maxOccurs="unbounded"/>
+                <element name="card" type="tns:Card" minOccurs="2" maxOccurs="unbounded"/>
             </sequence>
         </complexType>
     </element>
@@ -26,7 +26,7 @@
             <enumeration value="Cityscape"/>
             <enumeration value="Nature"/>
             <enumeration value="People"/>
-             <enumeration value="Religion"/>
+            <enumeration value="Religion"/>
             <enumeration value="Sport"/>
             <enumeration value="Architecture"/>
         </restriction>
