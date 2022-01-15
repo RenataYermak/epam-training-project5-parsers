@@ -12,6 +12,7 @@
         </complexType>
     </element>
     <complexType name="Card">
+
         <sequence>
             <element name="Id" type="long"/>
             <element name="Theme" type="tns:Theme"/>

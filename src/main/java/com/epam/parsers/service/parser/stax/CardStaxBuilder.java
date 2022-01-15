@@ -6,7 +6,6 @@ import com.epam.parsers.model.Type;
 import com.epam.parsers.model.Valuable;
 import com.epam.parsers.service.parser.AbstractCardBuilder;
 import com.epam.parsers.service.parser.sax.CardXmlTag;
-
 import javax.xml.stream.*;
 import java.io.FileInputStream;
 import java.io.IOException;
@@ -18,16 +17,21 @@ import java.text.SimpleDateFormat;
  */
 public class CardStaxBuilder extends AbstractCardBuilder {
 
+    private final XMLInputFactory inputFactory;
+
+    public CardStaxBuilder() {
+        inputFactory = XMLInputFactory.newInstance();
+    }
+
     @Override
     public void buildSetCards(String xmlFile) {
-        XMLInputFactory inputFactory = XMLInputFactory.newInstance();
         XMLStreamReader reader;
+        String name;
         try (FileInputStream inputStream = new FileInputStream(xmlFile)) {
             reader = inputFactory.createXMLStreamReader(inputStream);
             while (reader.hasNext()) {
                 int type = reader.next();
                 if (type == XMLStreamConstants.START_ELEMENT) {
-                    String name;
                     name = reader.getLocalName();
                     if (name.equals(CardXmlTag.CARD.getName())) {
                         Card card = buildCard(reader);
@@ -36,13 +40,12 @@ public class CardStaxBuilder extends AbstractCardBuilder {
                 }
             }
         } catch (IOException | XMLStreamException | ParseException e) {
-            throw new RuntimeException("Error in method buildSetCards" + e);
+            throw new RuntimeException("Error in  buildSetCards " + e);
         }
     }
 
     private Card buildCard(XMLStreamReader reader) throws XMLStreamException, ParseException {
         Card card = new Card();
-        card.setId(Long.valueOf(reader.getAttributeValue(null, CardXmlTag.ID.getName())));
         String name;
         while (reader.hasNext()) {
             int type = reader.next();
@@ -52,6 +55,7 @@ public class CardStaxBuilder extends AbstractCardBuilder {
                     switch (CardXmlTag.valueOf(name.toUpperCase())) {
                         case ID:
                             card.setId(Long.valueOf(getXMLText(reader)));
+                            break;
                         case AUTHOR:
                             card.setAuthor(getXMLText(reader));
                             break;
@@ -62,13 +66,13 @@ public class CardStaxBuilder extends AbstractCardBuilder {
                             card.setYear(new SimpleDateFormat("yyyy").parse(getXMLText(reader)));
                             break;
                         case THEME:
-                            card.setTheme(Theme.valueOf(getXMLText(reader)));
+                            card.setTheme(Theme.valueOf(getXMLText(reader).toUpperCase()));
                             break;
                         case TYPE:
-                            card.setType(Type.valueOf(getXMLText(reader)));
+                            card.setType(Type.valueOf(getXMLText(reader).toUpperCase()));
                             break;
                         case VALUABLE:
-                            card.setValuable(Valuable.valueOf(getXMLText(reader)));
+                            card.setValuable(Valuable.valueOf(getXMLText(reader).toUpperCase()));
                             break;
                     }
                     break;

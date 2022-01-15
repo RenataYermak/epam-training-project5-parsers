@@ -70,7 +70,7 @@ public class ParserController extends HttpServlet {
     }
 
     private String uploadFile(HttpServletRequest req) throws ServletException, IOException {
-        String fileName = null;
+        String fileName;
         Part filePart = req.getPart(FILE);
         try (InputStream inputStream = filePart.getInputStream()) {
             fileName = filePart.getSubmittedFileName();
