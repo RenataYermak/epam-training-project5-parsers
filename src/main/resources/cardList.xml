@@ -1,11 +1,14 @@
-<?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<OldCards>
+<?xml version="1.0" encoding="UTF-8"?>
+<cards xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xmlns="http://www.example.com/cards"
+       xsi:schemaLocation="http://www.example.com/cards cardList.xsd">
+
     <Card>
         <Id>1</Id>
         <Theme>Cityscape</Theme>
         <Type>Advertising</Type>
         <Country>USA</Country>
-        <Year>1997</Year>
+        <Year>1997-12-12</Year>
         <Author>Someone</Author>
         <Valuable>Collectible</Valuable>
     </Card>
@@ -14,7 +17,7 @@
         <Theme>Nature</Theme>
         <Type>Advertising</Type>
         <Country>Canada</Country>
-        <Year>1963</Year>
+        <Year>1963-10-26</Year>
         <Author>Someone</Author>
         <Valuable>Historical</Valuable>
     </Card>
@@ -23,7 +26,7 @@
         <Theme>People</Theme>
         <Type>Usual</Type>
         <Country>Great Britain</Country>
-        <Year>1977</Year>
+        <Year>1977-06-08</Year>
         <Author>Author</Author>
         <Valuable>Thematic</Valuable>
     </Card>
@@ -32,7 +35,7 @@
         <Theme>Sport</Theme>
         <Type>Congratulatory</Type>
         <Country>Brazil</Country>
-        <Year>2000</Year>
+        <Year>2000-04-30</Year>
         <Author>Someone</Author>
         <Valuable>Collectible</Valuable>
     </Card>
@@ -41,7 +44,7 @@
         <Theme>Sport</Theme>
         <Type>Advertising</Type>
         <Country>Canada</Country>
-        <Year>2003</Year>
+        <Year>2003-01-01</Year>
         <Author>Someone</Author>
         <Valuable>Thematic</Valuable>
     </Card>
@@ -50,7 +53,7 @@
         <Theme>Nature</Theme>
         <Type>Usual</Type>
         <Country>USA</Country>
-        <Year>1877</Year>
+        <Year>1877-12-13</Year>
         <Author>Someone</Author>
         <Valuable>Thematic</Valuable>
     </Card>
@@ -59,7 +62,7 @@
         <Theme>Religion</Theme>
         <Type>Congratulatory</Type>
         <Country>India</Country>
-        <Year>2009</Year>
+        <Year>2009-10-24</Year>
         <Author>Someone</Author>
         <Valuable>Thematic</Valuable>
     </Card>
@@ -68,7 +71,7 @@
         <Theme>Cityscape</Theme>
         <Type>Advertising</Type>
         <Country>Canada</Country>
-        <Year>1997</Year>
+        <Year>1997-03-30</Year>
         <Author>Someone</Author>
         <Valuable>Thematic</Valuable>
     </Card>
@@ -77,7 +80,7 @@
         <Theme>People</Theme>
         <Type>Usual</Type>
         <Country>Brazil</Country>
-        <Year>1908</Year>
+        <Year>1908-12-17</Year>
         <Author>Someone</Author>
         <Valuable>Thematic</Valuable>
     </Card>
@@ -86,7 +89,7 @@
         <Theme>Sport</Theme>
         <Type>Advertising</Type>
         <Country>Italy</Country>
-        <Year>2012</Year>
+        <Year>2012-12-19</Year>
         <Author>Someone</Author>
         <Valuable>Thematic</Valuable>
     </Card>
@@ -95,7 +98,7 @@
         <Theme>Architecture</Theme>
         <Type>Congratulatory</Type>
         <Country>Belarus</Country>
-        <Year>2019</Year>
+        <Year>2019-11-26</Year>
         <Author>Someone</Author>
         <Valuable>Thematic</Valuable>
     </Card>
@@ -104,7 +107,7 @@
         <Theme>Nature</Theme>
         <Type>Advertising</Type>
         <Country>Canada</Country>
-        <Year>1998</Year>
+        <Year>1998-10-29</Year>
         <Author>Someone</Author>
         <Valuable>Thematic</Valuable>
     </Card>
@@ -113,7 +116,7 @@
         <Theme>Sport</Theme>
         <Type>Usual</Type>
         <Country>USA</Country>
-        <Year>1989</Year>
+        <Year>1989-05-18</Year>
         <Author>Someone</Author>
         <Valuable>Thematic</Valuable>
     </Card>
@@ -122,7 +125,7 @@
         <Theme>Cityscape</Theme>
         <Type>Usual</Type>
         <Country>Russia</Country>
-        <Year>2013</Year>
+        <Year>2013-07-28</Year>
         <Author>Someone</Author>
         <Valuable>Thematic</Valuable>
     </Card>
@@ -131,7 +134,7 @@
         <Theme>Sport</Theme>
         <Type>Advertising</Type>
         <Country>Canada</Country>
-        <Year>2007</Year>
+        <Year>2007-09-04</Year>
         <Author>Someone</Author>
         <Valuable>Thematic</Valuable>
     </Card>
@@ -140,10 +143,9 @@
         <Theme>Religion</Theme>
         <Type>Congratulatory</Type>
         <Country>Belarus</Country>
-        <Year>1898</Year>
+        <Year>1898-02-01</Year>
         <Author>Someone</Author>
         <Valuable>Thematic</Valuable>
     </Card>
-</OldCards>
-
+</cards>
 

@@ -1,7 +1,7 @@
 package com.epam.parsers.service.parser.sax;
 
 public enum CardXmlTag {
-    OLDCARDS("OldCards"),
+    CARDS("cards"),
     CARD("Card"),
     ID("Id"),
     YEAR("Year"),

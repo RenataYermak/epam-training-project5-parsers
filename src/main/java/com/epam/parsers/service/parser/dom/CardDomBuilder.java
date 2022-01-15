@@ -25,7 +25,7 @@ import java.text.SimpleDateFormat;
  * DOM Parser
  */
 public class CardDomBuilder extends AbstractCardBuilder {
-    private DocumentBuilder docBuilder;
+    private final DocumentBuilder docBuilder;
 
     public CardDomBuilder() {
         try {
@@ -33,7 +33,7 @@ public class CardDomBuilder extends AbstractCardBuilder {
             factory.setFeature(XMLConstants.FEATURE_SECURE_PROCESSING, true);
             docBuilder = factory.newDocumentBuilder();
         } catch (ParserConfigurationException e) {
-            e.printStackTrace();
+            throw new RuntimeException("Error in method CardDomBuilder " + e);
         }
     }
 
@@ -53,7 +53,7 @@ public class CardDomBuilder extends AbstractCardBuilder {
                 }
             }
         } catch (SAXException | IOException | ParseException e) {
-            e.printStackTrace();
+            throw new RuntimeException("Error in method buildSetCards " + e);
         }
     }
 

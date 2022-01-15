@@ -23,7 +23,7 @@ public class CardSaxBuilder extends AbstractCardBuilder {
             SAXParser parser = factory.newSAXParser();
             reader = parser.getXMLReader();
         } catch (ParserConfigurationException | SAXException e) {
-            e.printStackTrace();
+            throw new RuntimeException("Error in method CardSaxBuilder " + e);
         }
         reader.setContentHandler(cardHandler);
     }
@@ -33,7 +33,7 @@ public class CardSaxBuilder extends AbstractCardBuilder {
         try {
             reader.parse(xmlFile);
         } catch (IOException | SAXException e) {
-            e.printStackTrace();
+            throw new RuntimeException("Error in method buildSetCards " + e);
         }
         cards = cardHandler.getCards();
     }

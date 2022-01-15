@@ -5,7 +5,6 @@ import com.epam.parsers.model.Theme;
 import com.epam.parsers.model.Type;
 import com.epam.parsers.model.Valuable;
 import org.xml.sax.Attributes;
-import org.xml.sax.SAXException;
 import org.xml.sax.helpers.DefaultHandler;
 
 import java.text.ParseException;
@@ -19,8 +18,7 @@ public class CardHandler extends DefaultHandler {
     private CardXmlTag currentTag;
 
     @Override
-    public void startElement(String uri, String localName, String qName, Attributes attributes)
-            throws SAXException {
+    public void startElement(String uri, String localName, String qName, Attributes attributes) {
         if (qName.equals("Card")) {
             currentCard = new Card();
         }
@@ -28,8 +26,7 @@ public class CardHandler extends DefaultHandler {
     }
 
     @Override
-    public void endElement(String uri, String localName, String qName)
-            throws SAXException {
+    public void endElement(String uri, String localName, String qName) {
         if (qName.equals("Card")) {
             cards.add(currentCard);
         }
@@ -67,7 +64,7 @@ public class CardHandler extends DefaultHandler {
                 }
             }
         } catch (ParseException e) {
-            e.printStackTrace();
+            throw new RuntimeException("Error in method characters" + e);
         }
     }
 

@@ -3,6 +3,7 @@ package com.epam.parsers.controller;
 import com.epam.parsers.model.Card;
 import com.epam.parsers.service.parser.AbstractCardBuilder;
 import com.epam.parsers.service.CardBuilderFactory;
+import com.epam.parsers.validator.ValidatorXML;
 
 import javax.servlet.ServletException;
 import javax.servlet.annotation.MultipartConfig;
@@ -25,6 +26,16 @@ import java.util.stream.Collectors;
 @WebServlet(urlPatterns = {"/parserController"})
 public class ParserController extends HttpServlet {
 
+    private static final String XSD_PATH = "C:/epam-training-project5-parsers/out/production/resources/cardList.xsd";
+    private static final String XML_PATH = "C:/epam-training-project5-parsers/out/production/resources/cardList.xml";
+    private static final String RESULT_PAGE = "/result.jsp";
+    private static final String CARDS = "cards";
+    private static final String PARSER_TYPE = "parserType";
+    private static final String FILE = "file";
+
+    public void init() {
+    }
+
     @Override
     protected void doGet(HttpServletRequest req, HttpServletResponse resp)
             throws ServletException, IOException {
@@ -39,28 +50,38 @@ public class ParserController extends HttpServlet {
 
     private void executeRequest(HttpServletRequest req, HttpServletResponse resp)
             throws ServletException, IOException {
-        String parserType = req.getParameter("parserType");
-        String filePath = uploadFile(req);
-        AbstractCardBuilder builder = CardBuilderFactory.createCardBuilder(parserType);
-        builder.buildSetCards(filePath);
-        List<Card> cards = builder.getCards().stream()
-                .sorted(Comparator.comparing(Card::getId))
-                .collect(Collectors.toList());
-        req.setAttribute("cards", cards);
-        req.setAttribute("parserType", parserType);
-        getServletContext().getRequestDispatcher("/result.jsp").forward(req, resp);
+        String parserType = req.getParameter(PARSER_TYPE);
+        String filePathXML = uploadFile(req);
+        ValidatorXML validatorXML = new ValidatorXML();
+        if (validatorXML.isFileValid(XSD_PATH, filePathXML)) {
+            try {
+                AbstractCardBuilder builder = CardBuilderFactory.createCardBuilder(parserType);
+                builder.buildSetCards(filePathXML);
+                List<Card> cards = builder.getCards().stream()
+                        .sorted(Comparator.comparing(Card::getId))
+                        .collect(Collectors.toList());
+                req.setAttribute(CARDS, cards);
+                req.setAttribute(PARSER_TYPE, parserType);
+                getServletContext().getRequestDispatcher(RESULT_PAGE).forward(req, resp);
+            } catch (ServletException | IOException e) {
+                throw new RuntimeException("Error in method executeRequest" + e);
+            }
+        }
     }
 
     private String uploadFile(HttpServletRequest req) throws ServletException, IOException {
         String fileName = null;
-        Part filePart = req.getPart("file");
+        Part filePart = req.getPart(FILE);
         try (InputStream inputStream = filePart.getInputStream()) {
             fileName = filePart.getSubmittedFileName();
-            Path filePath = new File("C:\\test\\" + fileName).toPath();
+            Path filePath = new File(XML_PATH + fileName).toPath();
             Files.copy(inputStream, filePath, StandardCopyOption.REPLACE_EXISTING);
         } catch (IOException e) {
             e.printStackTrace();
         }
-        return String.format("C:\\test\\%s", fileName);
+        return XML_PATH;
+    }
+
+    public void destroy() {
     }
 }

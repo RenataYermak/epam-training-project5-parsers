@@ -16,10 +16,14 @@ public class CardBuilderFactory {
     public static AbstractCardBuilder createCardBuilder(String typeParser) {
         TypeParser type = TypeParser.valueOf(typeParser.toUpperCase());
         switch (type) {
-            case DOM: return new CardDomBuilder();
-            case SAX: return new CardSaxBuilder();
-            case STAX: return new CardStaxBuilder();
-            default: throw new EnumConstantNotPresentException(type.getDeclaringClass(), type.name());
+            case DOM:
+                return new CardDomBuilder();
+            case SAX:
+                return new CardSaxBuilder();
+            case STAX:
+                return new CardStaxBuilder();
+            default:
+                throw new EnumConstantNotPresentException(type.getDeclaringClass(), type.name());
         }
     }
 }
