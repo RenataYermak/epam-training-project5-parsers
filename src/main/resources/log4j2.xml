@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<configuration status="info">
+    <Properties>
+        <Property name="pattern1"> [%-5p] %d %c - %m%n </Property>
+        <Property name="pattern2"/>
+        <Property name="filePath">C:\epam-training-project5-parsers\src\main\resources\logs.log</Property>
+    </Properties>
+
+    <appenders>
+        <Console name="Console" target="SYSTEM_OUT">
+            <PatternLayout pattern="${pattern1}"/>
+        </Console>
+        <RollingFile name="RollingFile" fileName="${filePath}"
+                     filePattern="logs/$${date:yyyy-MM}/app-%d{MM-dd-yyyy}-%i.log.gz">
+            <PatternLayout pattern="${pattern2}"/>
+            <SizeBasedTriggeringPolicy size="5 MB"/>
+        </RollingFile>
+    </appenders>
+    <loggers>
+        <root level="info">
+            <appender-ref ref="RollingFile"/>
+        </root>
+    </loggers>
+</configuration>
